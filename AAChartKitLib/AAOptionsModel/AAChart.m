@@ -44,6 +44,7 @@ AAPropSetFuncImplementation(AAChart, BOOL ,         polar)
 AAPropSetFuncImplementation(AAChart, AAAnimation *, animation) 
 AAPropSetFuncImplementation(AAChart, BOOL ,         inverted) 
 AAPropSetFuncImplementation(AAChart, NSNumber    *, marginLeft) 
-AAPropSetFuncImplementation(AAChart, NSNumber    *, marginRight) 
+AAPropSetFuncImplementation(AAChart, NSNumber    *, marginRight)
+AAPropSetFuncImplementation(AAChart, AAChartEvents *, events)
 
 @end

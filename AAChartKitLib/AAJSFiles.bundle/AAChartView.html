@@ -50,6 +50,7 @@
                 }
                 
                 configureOptionsFormatters(aaOptions);
+                configureChartEvents(aaOptions);
                 
                 aaGlobalChart = Highcharts.chart('container', aaOptions);
             }
@@ -150,6 +151,14 @@
                 aaOptions.yAxis.labels.formatter = eval(aaOptions.yAxis.labels.formatter);
             } 
         }
+        
+        function configureChartEvents(aaOptions) {
+            if (aaOptions.chart.events) {
+                if (aaOptions.chart.events.load) {
+                    aaOptions.chart.events.load = eval(aaOptions.chart.events.load);
+                }
+            }
+        }
 
         function onlyRefreshTheChartDataWithSeries(receivedSeries) {
             var receivedSeriesElementArr = JSON.parse(receivedSeries);
@@ -160,6 +169,21 @@
                 var chartSeries = aaGlobalChart.series[i];
                 // 执行只刷新数据的函数
                 chartSeries.setData(receivedSeriesData);
+            }
+        }
+        
+        function onlyAppendTheChartDataWithSeries(receivedSeries) {
+            var receivedSeriesElementArr = JSON.parse(receivedSeries);
+            
+            for (var i = 0; i < receivedSeriesElementArr.length; i++) {
+                var receivedSeriesData = receivedSeriesElementArr[i].data;
+                // 获取series
+                var chartSeries = aaGlobalChart.series[i];
+                for (var j = 0; j < receivedSeriesData.length; j++) {
+                    var seriesPoint = receivedSeriesData[j];
+                    //添加点数据，会动态平移X轴
+                    chartSeries.addPoint(seriesPoint, true, true);
+                }
             }
         }
         

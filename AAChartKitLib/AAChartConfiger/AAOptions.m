@@ -56,6 +56,7 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
 @implementation AAOptionsConstructor
 
 + (AAOptions *)configureChartOptionsWithAAChartModel:(AAChartModel *)aaChartModel {
+    AAChartEvents *chartEvents = AAChartEvents.new;
     
     AAChart *aaChart = AAChart.new
     .typeSet(aaChartModel.chartType)//绘图类型
@@ -64,6 +65,8 @@ AAPropSetFuncImplementation(AAOptions, BOOL           , touchEventEnabled)
     .pinchTypeSet(aaChartModel.zoomType)//设置手势缩放方向
     .panningSet(true)//设置手势缩放后是否可平移
     .polarSet(aaChartModel.polar);
+    
+    aaChart.events = chartEvents;
     
     AATitle *aaTitle = AATitle.new
     .textSet(aaChartModel.title)//标题文本内容

@@ -33,6 +33,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "AAChartEvents.h"
 #import "AAGlobalMacro.h"
 @class AAAnimation;
 
@@ -48,7 +49,8 @@ AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          polar)
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAAnimation *, animation) //设置启用动画的时间和类型
 AAPropStatementAndPropSetFuncStatement(assign, AAChart, BOOL,          inverted) 
 AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginLeft) 
-AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginRight) 
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, NSNumber    *, marginRight)
+AAPropStatementAndPropSetFuncStatement(strong, AAChart, AAChartEvents *, events) //事件
 
 @end
 

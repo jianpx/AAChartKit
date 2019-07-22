@@ -216,6 +216,12 @@ UIWebViewDelegate > {
     NSString *javaScriptStr = [NSString stringWithFormat:@"onlyRefreshTheChartDataWithSeries('%@')",seriesJsonStr];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
+
+- (void)aa_onlyAppendChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
+    NSString *seriesJsonStr = [AAJsonConverter getPureSeriesString:series];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyAppendTheChartDataWithSeries('%@')",seriesJsonStr];
+    [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
+}
 //
 #pragma mark - =======================CONFIGURE THE CHART VIEW CONTENT WITH `AAOPTIONS`=======================//
 
