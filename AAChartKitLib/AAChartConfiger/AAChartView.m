@@ -217,9 +217,9 @@ UIWebViewDelegate > {
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 
-- (void)aa_onlyAppendChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series {
+- (void)aa_onlyAppendChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series maxCountBeforeShiftXAixs:(NSInteger)maxCountBeforeShiftXAixs {
     NSString *seriesJsonStr = [AAJsonConverter getPureSeriesString:series];
-    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyAppendTheChartDataWithSeries('%@')",seriesJsonStr];
+    NSString *javaScriptStr = [NSString stringWithFormat:@"onlyAppendTheChartDataWithSeries('%@', %ld)", seriesJsonStr, (long)maxCountBeforeShiftXAixs];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
 }
 //

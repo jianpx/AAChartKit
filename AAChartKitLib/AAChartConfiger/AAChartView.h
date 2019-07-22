@@ -117,7 +117,7 @@
  */
 - (void)aa_onlyRefreshTheChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series;
 
-- (void)aa_onlyAppendChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series;
+- (void)aa_onlyAppendChartDataWithChartModelSeries:(NSArray<NSDictionary *> *)series maxCountBeforeShiftXAixs:(NSInteger)maxCountBeforeShiftXAixs;
 
 /**
  Function of refreshing whole chart view content
